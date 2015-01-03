@@ -58,7 +58,7 @@ describe "Creating todo lists" do
   it "displays an error when the todo list has a description less than 5 characters" do
     expect(TodoList.count).to eq(0)
 
-    create_todo_list title: "Grocery list", description "Food"
+    create_todo_list title: "Grocery list", description: "Food"
 
     expect(page).to have_content("error")
     expect(TodoList.count).to eq(0)
