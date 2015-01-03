@@ -17,6 +17,7 @@ gem 'spring',        group: :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'minitest'
 end
 
 group :test do
