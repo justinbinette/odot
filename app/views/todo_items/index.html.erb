@@ -4,6 +4,8 @@
   <% @todo_list.todo_items.each do |todo_item| %>
   <tr id="<%= dom_id(todo_item) %>">
     <td><%= todo_item.content %></td>
+    <td><%= link_to "Mark Complete", complete_todo_list_todo_item_path(todo_item),
+        method: :patch %></td>
     <td><%= link_to "Edit", edit_todo_list_todo_item_path(todo_item) %></td>
     <td><%= link_to "Delete", todo_list_todo_item_path(todo_item), method: :delete,
         data: { confirm: "Are you sure?" } %></td>
@@ -14,16 +16,3 @@
 <p>
   <%= link_to "New Todo Item", new_todo_list_todo_item_path %>
 </p>
-
-div.nav ul li a {
-  display: block;
-  width: auto;
-  padding: 8px 10px 8px 10px;
-  background: #eee;
-  color: #aaa;
-}
-
-div.nav ul li a:hover {
-  background: #aaa;
-  color: #eee;
-}
