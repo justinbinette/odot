@@ -1,4 +1,4 @@
-<h1><%= @todo_list.title %></h1>
+<h1 class='list_title'><%= @todo_list.title %></h1>
 
 <table class="todo_items">
   <thead>
@@ -18,7 +18,7 @@
                                             method: :patch %></td>
         <% end %>
 
-        <td><%= todo_item.content %></td>
+        <td class='todo_content'><%= todo_items.content %></td>
 
         <td>
           <%= link_to "Edit", edit_todo_list_todo_item_path(todo_item) %>

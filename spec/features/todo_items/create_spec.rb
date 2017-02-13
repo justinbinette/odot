@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 describe "Adding todo items" do
-  let!(:todo_list) { TodoList.create(title: "Grocery list", description: "Groceries")}
+  let!(:todo_list) { create(:todo_list) }
+
+  before do
+    sign_in todo_list.user, password: "P455w0rd!"
+  end
 
   it "is successful with valid content" do
     visit_todo_list(todo_list)
@@ -9,7 +13,7 @@ describe "Adding todo items" do
     fill_in "Content", with: "Milk"
     click_button "Save"
     expect(page).to have_content("Added todo list item.")
-    within("ul.todo_items") do
+    within("td.todo_content") do
       expect(page).to have_content("Milk")
     end
   end
